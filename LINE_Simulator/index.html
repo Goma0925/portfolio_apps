@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>LINE SIMULATOR</title>
+    <link rel='stylesheet' href='config/messenger-style.css' type='text/css' media='all' />
+    <link rel="stylesheet" type="text/css" href="config/form.css" media='all'>
+    <link rel="stylesheet" type="text/css" href="config/bootstrap.min.css" media='all'>
+  </head>
+  <body>
+    <div id="setting-screen">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="box">
+            <div class="box-title">人物</div>
+            <div id="people-form">
+              <p>*画像をクリックしてアップロード</p>
+              <div class="person-info">
+                <label class="person-img-uploader">
+                  <img src="config/placeholders/no-avatar.svg" class="person-img">
+                  <input type="file" class="img-input" accept="image/*" />
+                </label><span class="guide-text">人物名: </span>
+                <input type="text" class="form person-name-input" name="person-name" value="人物１" maxlength="15" placeholder="未設定">
+                <span class="guide-text"><input type="radio" name="main-user" checked>メインのユーザーとして指定</span>
+                <span class="css-cancel delete-person-form">×</span><br>
+              </div>
+              <div class="person-info">
+                <label class="person-img-uploader">
+                  <img src="config/placeholders/no-avatar.svg" class="person-img">
+                  <input type="file" class="img-input" accept="image/*" />
+                </label><span class="guide-text">人物名: </span>
+                <input type="text" class="form person-name-input" name="person-name" value="人物２" maxlength="15" placeholder="未設定">
+                <span class="guide-text"><input type="radio" name="main-user">メインのユーザーとして指定</span>
+                <span class="css-cancel delete-person-form">×</span><br>
+              </div>
+            </div>
+            <br>
+            <center><button type="button" class="btn btn-info" id="add-person-form">人物を追加</button></center><br>
+          </div>
+          <div class="box">
+            <div class="box-title">トーク設定</div>
+            <div class="plain-row">
+              <center>
+                <form id="talk-mode-selector">
+                  <input type="radio" name="simulation-type" value="click"><span>&nbsp;クリックしてディスプレイ</span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="radio" name="simulation-type" value="auto" checked><span>&nbsp;自動でディスプレイ</span>
+                  <hr class="thin-hr">
+                  <span class="guide-text">トークタイトル:</span><input type="text" name="talk-title" value="トークタイトル">
+                </form>
+              </ceter>
+            </div>
+            <table class="table">
+              <thead>
+                <tr class="label-row">
+                  <th scope="col">削除</th>
+                  <th scope="col">待ち時間</th>
+                  <th scope="col" class="person-name-label">人物１</th>
+                  <th scope="col" class="person-name-label">人物２</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="data-row">
+                  <th><span class="css-cancel delete-talk-form">×</span></th>
+                  <th>
+                    <select class="wait-time-selector">
+                      <option value="1">1秒</option>
+                      <option value="2">2秒</option>
+                      <option value="3">3秒</option>
+                      <option value="4">4秒</option>
+                      <option value="5">5秒</option>
+                      <option value="6">6秒</option>
+                      <option value="7">7秒</option>
+                      <option value="8">8秒</option>
+                      <option value="9">9秒</option>
+                      <option value="10">10秒</option>
+                    </select>
+                  </th>
+                  <td><input type="text" class="table-cell" value="ねえねえ、このアプリって何に使うの？"></td>
+                  <td><input type="text" class="table-cell"></td>
+                </tr>
+                <tr class="data-row">
+                  <th><span class="css-cancel delete-talk-form">×</span></th>
+                  <th>
+                    <select class="wait-time-selector">
+                      <option value="1">1秒</option>
+                      <option value="2"　selected>2秒</option>
+                      <option value="3">3秒</option>
+                      <option value="4">4秒</option>
+                      <option value="5">5秒</option>
+                      <option value="6">6秒</option>
+                      <option value="7">7秒</option>
+                      <option value="8">8秒</option>
+                      <option value="9">9秒</option>
+                      <option value="10">10秒</option>
+                    </select>
+                  </th>
+                  <td><input type="text" class="table-cell"></td>
+                  <td><input type="text" class="table-cell" value="このアプリは会話内容を入力することでLINEのようなメッセンジャーアプリのトーク画面を生成できるアプリなんだ！"></td>
+                </tr>
+                <tr class="data-row">
+                  <th><span class="css-cancel delete-talk-form">×</span></th>
+                  <th>
+                    <select class="wait-time-selector">
+                      <option value="1">1秒</option>
+                      <option value="2"selected>2秒</option>
+                      <option value="3">3秒</option>
+                      <option value="4">4秒</option>
+                      <option value="5">5秒</option>
+                      <option value="6">6秒</option>
+                      <option value="7">7秒</option>
+                      <option value="8">8秒</option>
+                      <option value="9">9秒</option>
+                      <option value="10">10秒</option>
+                    </select>
+                  </th>
+                  <td><input type="text" class="table-cell"></td>
+                  <td><input type="text" class="table-cell" value="設定画面の画像を差し替えることで、プロフィール画像も変更できるよ"></td>
+                </tr>
+                <tr class="data-row">
+                  <th><span class="css-cancel delete-talk-form">×</span></th>
+                  <th>
+                    <select class="wait-time-selector">
+                      <option value="1">1秒</option>
+                      <option value="2" selected>2秒</option>
+                      <option value="3">3秒</option>
+                      <option value="4">4秒</option>
+                      <option value="5">5秒</option>
+                      <option value="6">6秒</option>
+                      <option value="7">7秒</option>
+                      <option value="8">8秒</option>
+                      <option value="9">9秒</option>
+                      <option value="10">10秒</option>
+                    </select>
+                  </th>
+                  <td><input type="text" class="table-cell"></td>
+                  <td><input type="text" class="table-cell" value="長〜い会話も、複数の人物が登場するグループトークも簡単に再現できちゃうんだ"></td>
+                </tr>
+                <tr class="data-row">
+                  <th><span class="css-cancel delete-talk-form">×</span></th>
+                  <th>
+                    <select class="wait-time-selector">
+                      <option value="1">1秒</option>
+                      <option value="2">2秒</option>
+                      <option value="3" selected>3秒</option>
+                      <option value="4">4秒</option>
+                      <option value="5">5秒</option>
+                      <option value="6">6秒</option>
+                      <option value="7">7秒</option>
+                      <option value="8">8秒</option>
+                      <option value="9">9秒</option>
+                      <option value="10">10秒</option>
+                    </select>
+                  </th>
+                  <td><input type="text" class="table-cell" value="へぇ〜...動画作成なんかにも使えそうだね！"></td>
+                  <td><input type="text" class="table-cell"></td>
+                </tr>
+              </tbody>
+            </table>
+            <br>
+            <center><button class="btn btn-info" id="add-talk-form">トーク追加</button></center>
+            <br>
+
+        </div>
+          <button class="btn btn-info btn-block" id="create-talk">トーク生成</button><br>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="simulator-screen">
+    <div class="control-panel">
+      <button class="btn btn-info control-button" id="process">トークを表示</button><br>
+      <button class="btn btn-info control-button" id="go-back-to-setting"> 設定に戻る </button>
+    </div>
+      <!-- ▼LINE風ここから -->
+      <div class="line__container">
+        <!-- タイトル -->
+        <div class="line__title">
+          LINEシミューレータ
+        </div>
+
+        <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
+        <div class="line__contents scroll">
+
+        </div>
+        <!--　▲会話エリア ここまで -->
+      </div>
+      <!--　▲LINE風ここまで -->
+  </div>
+  </body>
+  <script type="text/javascript" src="config/jquery.min.js"></script>
+  <script type="text/javascript" src="config/script.js"></script>
+</html>
