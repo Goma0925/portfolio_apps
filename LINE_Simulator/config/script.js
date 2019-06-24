@@ -137,7 +137,7 @@ class interfaceController{
   };
 
   _addTalkForm(){
-    //console.log("add-talk");
+    var talkMode = $("input[name='simulation-type']:checked").val();
     var tbody = $(".table tbody");
     var tr = document.createElement("tr");
     tr.className += "data-row";
@@ -155,12 +155,20 @@ class interfaceController{
     var thWaitTimeSelector = document.createElement("th");
     var select = document.createElement("select");
     select.className += "wait-time-selector"
-    for (var i=1; i <= this.maxWaitTime; i++){
+    if (talkMode === "auto"){
+      for (var i=1; i <= this.maxWaitTime; i++){
+        var option = document.createElement("option");
+        option.innerHTML = i + "秒";
+        option.value = i;
+        select.appendChild(option);
+      };
+    }else{//(talkMode === "click")
       var option = document.createElement("option");
-      option.innerHTML = i + "秒";
-      option.value = i;
+      option.innerHTML = "---";
+      option.value = "none";
       select.appendChild(option);
     };
+
     thWaitTimeSelector.appendChild(select);
     tr.appendChild(thWaitTimeSelector);
 
@@ -439,7 +447,6 @@ class TextSimulator{
   };
 
   _goBackToSettings(){
-    console.log("goBackToSettings");
     $("#simulator-screen").get(0).style.display = "none";
     $("#setting-screen").get(0).style.display = "block";
     $("#process").removeClass("disabled");
@@ -485,7 +492,6 @@ class TextSimulator{
     chatContainer.appendChild(nameContainer);
     chatContainer.appendChild(textContainer);
     outsideContainer.appendChild(chatContainer);
-    console.log("Node;", outsideContainer);
     $messageContent.append(outsideContainer);
     // window.scrollTo(0,document.querySelector(".line__contents").scrollHeight);
     //Scroll to the bottom
